@@ -54,6 +54,26 @@ const deleteMascota = async (req, res) =>{
 
 }
 
+const actualizarMascota = async (req, res)=>{
 
-export {getMascotas, getMascotaPorId, añadirMascota, deleteMascota};
+    if(!idValido(req.params.id)){
+        return res.status(400).json({error:'ID inválido', id:req.params.id});
+    }
+    try{
+
+        const actualizada = await Mascota.findByIdAndUpdate(req.params.id, req.body, {new:true, runValidators: true});
+
+        if (!actualitzada) {
+            return res.status(404).json({ error: 'Cervesa no trobada', id: req.params.id });
+        }
+        res.json(actualitzada);
+
+    }catch(err){
+        res.status(400).json({ error: err.message });
+    }
+
+}
+
+
+export {getMascotas, getMascotaPorId, añadirMascota, deleteMascota, actualizarMascota};
 
