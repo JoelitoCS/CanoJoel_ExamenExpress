@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import Mascota from '../model/modelMascota.js';
 
+const idValido = (id) => mongoose.Types.ObjectId.isValid(id);
 
 const mascotas = [
     { id: 1, nombre: "Fido", especie: "Perro" },
@@ -35,6 +36,24 @@ const añadirMascota = async (req, res) =>{
 
 };
 
+const deleteMascota = async (req, res) =>{
 
-export {getMascotas, getMascotaPorId, añadirMascota};
+    if(!idValido(req.params.id)){
+        return res.status(400).json({error:'ID inválido', id: req.params.id});
+    }
+    
+    try{
+        const eliminada = await Mascota.findByIdAndDelete(req.params.id);
+        if(!eliminada){
+            return res.status(404).json({error:'Mascota no encontrada', id:req.params.id });
+        }
+        res.status(200).send();
+    }catch(err){
+        res.status(500).json({error:err.message});
+    }
+
+}
+
+
+export {getMascotas, getMascotaPorId, añadirMascota, deleteMascota};
 

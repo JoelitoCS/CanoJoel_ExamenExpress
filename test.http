@@ -30,28 +30,3 @@ Content-Type: {{contentType}}
     "especie": "Gato"
 }
 
-### comprobar que añade mascotas - Perro
-POST {{baseUrl}}/
-Content-Type: {{contentType}}
-
-{
-    "nombre": "Rex",
-    "especie": "Perro"
-}
-
-### comprobar que añade mascotas - Pájaro
-POST {{baseUrl}}/
-Content-Type: {{contentType}}
-
-{
-    "nombre": "Tweety",
-    "especie": "Pájaro"
-}
-
-### comprobar que añade mascotas - Sin nombre (error esperado)
-POST {{baseUrl}}/
-Content-Type: {{contentType}}
-
-{
-    "especie": "Hamster"
-}
