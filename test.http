@@ -1,4 +1,4 @@
-@baseUrl = https://canojoel-examenexpress.onrender.com/api/mascotas
+@baseUrl = https://canojoel-examenexpress-1.onrender.com/api/mascotas
 @contentType = application/json
 
 GET {{baseUrl}}/
