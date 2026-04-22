@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import Mascota from './model/modelMascota.js';
+import Mascota from '../model/modelMascota.js';
 
 
 const mascotas = [
