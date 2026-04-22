@@ -1,3 +1,7 @@
+import mongoose from 'mongoose';
+import Mascota from './model/modelMascota.js';
+
+
 const mascotas = [
     { id: 1, nombre: "Fido", especie: "Perro" },
     { id: 2, nombre: "Whiskers", especie: "Gato" },
@@ -20,6 +24,17 @@ const getMascotaPorId = (req, res) => {
     res.json(mascota);
 };
 
+const añadirMascota = (req, res) =>{
 
-export {getMascotas, getMascotaPorId};
+    try{
+        const nueva = await Mascota.create(req.body);
+        res.status(201).json(nueva);
+    }catch(err){
+        res.status(400).json({error: err.message});
+    }
+
+};
+
+
+export {getMascotas, getMascotaPorId, añadirMascota};
 
