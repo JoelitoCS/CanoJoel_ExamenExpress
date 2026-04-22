@@ -24,7 +24,7 @@ const getMascotaPorId = (req, res) => {
     res.json(mascota);
 };
 
-const añadirMascota = (req, res) =>{
+const añadirMascota = async (req, res) =>{
 
     try{
         const nueva = await Mascota.create(req.body);
