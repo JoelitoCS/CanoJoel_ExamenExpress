@@ -63,10 +63,10 @@ const actualizarMascota = async (req, res)=>{
 
         const actualizada = await Mascota.findByIdAndUpdate(req.params.id, req.body, {new:true, runValidators: true});
 
-        if (!actualitzada) {
+        if (!actualizada) {
             return res.status(404).json({ error: 'Cervesa no trobada', id: req.params.id });
         }
-        res.json(actualitzada);
+        res.json(actualizada);
 
     }catch(err){
         res.status(400).json({ error: err.message });
