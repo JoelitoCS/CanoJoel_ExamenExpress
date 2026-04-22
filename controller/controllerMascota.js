@@ -20,5 +20,11 @@ const getMascotaPorId = (req, res) => {
     res.json(mascota);
 };
 
+const nuevaMascota = async (req, res) => {
+  
+    
+
+};
+
 export {getMascotas, getMascotaPorId};
 
