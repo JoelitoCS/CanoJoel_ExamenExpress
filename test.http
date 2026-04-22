@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:3001/api/mascotas
+@baseUrl = https://canojoel-examenexpress.onrender.com/api/mascotas
 
 
 GET {{baseUrl}}/
